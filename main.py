@@ -20,7 +20,9 @@ class Student:
         if house not in ["Gryffindor", "School"]:
             raise ValueError("There is no such house in the list")
         self.__house = house
-
+    @classmethod
+    def smth(cls):
+        print("This is class method")
 
 def main():
     harry = Student("Harry", "Gryffindor")
@@ -28,5 +30,6 @@ def main():
     print(harry.name)
     harry.name = "daun"
     print(harry.name)
+    Student.smth()
 if __name__ == "__main__":
     main()
