@@ -1,17 +1,22 @@
-class Student:
-    def __init__(self, name, house):
+class Person:
+    def __init__(self, name):
         self.name = name
-        self.house = house
-    def __str__(self):
-        return f"{self.name} is in {self.house}"
     @property
     def name(self):
         return self.__name
     @name.setter
-    def name(self, name):
+    def name (self, name):
         if not name:
-            raise ValueError("Name is empty")
+            raise ValueError("No name given")
         self.__name = name
+
+
+class Student(Person):
+    def __init__(self, name, house):
+        super().__init__(name)
+        self.house = house		
+    def __str__(self):
+        return f"{self.name} is in {self.house}"
     @property
     def house(self):
         return self.__house
